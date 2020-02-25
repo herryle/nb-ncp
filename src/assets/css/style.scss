@@ -1,0 +1,247 @@
+//rest
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media screen and (min-width: 375px) {
+  html {
+    /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+    font-size: calc(100% + 2 * (100vw - 375px) / 39);
+    font-size: calc(16px + 2 * (100vw - 375px) / 39);
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
+    font-size: calc(112.5% + 4 * (100vw - 414px) / 586);
+    font-size: calc(18px + 4 * (100vw - 414px) / 586);
+  }
+}
+@media screen and (min-width: 600px) {
+  html {
+    /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
+    font-size: calc(125% + 4 * (100vw - 600px) / 400);
+    font-size: calc(20px + 4 * (100vw - 600px) / 400);
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    /* 1000px往后是每100像素0.5px增加 */
+    font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);
+    font-size: calc(22px + 6 * (100vw - 1000px) / 1000);
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.2em;
+  color: white;
+  background: #15005b;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.cp {
+  cursor: pointer;
+}
+.pa {
+  position: absolute;
+}
+//font weight
+.fs-weight {
+  font-weight: 600;
+}
+
+//colors
+$colors: (
+  'primary': #206cea,
+  'red': #ff3b07,
+  'black-blue': #110049,
+  'green': #2ad736,
+  'yellow': #fff000,
+  'blue': #1da2ff,
+  'blue-1': #1d0471,
+  'blue-2': #382673,
+  'blue-3': #2441a8,
+  'white': #fff,
+  'grey': #999,
+  'pink': #d1c6f6,
+  'black': #333,
+  'bottom-color': #2441a8
+);
+
+@each $colorKey, $color in $colors {
+  .text-#{$colorKey} {
+    color: $color;
+  }
+  .bg-#{$colorKey} {
+    background-color: $color;
+  }
+}
+
+//text align
+
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var;
+  }
+}
+
+//font size
+
+$font-sizes: (
+  'xxs': 0.6rem /* 9.6/16 */,
+  'xs': 0.6875rem /* 11/16 */,
+  'sm': 0.75rem /* 12/16 */,
+  'md': 0.8125rem /* 13/16 */,
+  'lg': 1rem /* 16/16 */,
+  'xl': 1.25rem /* 20/16 */
+);
+
+@each $sizeKey, $size in $font-sizes {
+  .fs-#{$sizeKey} {
+    font-size: $size;
+  }
+}
+
+//flex
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+.flex-1 {
+  flex: 1;
+}
+
+$flex-jc: (
+  'start': start,
+  'end': end,
+  'center': center,
+  'between': space-between,
+  'around': space-around
+);
+
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}
+
+$flex-ac: (
+  'start': start,
+  'end': end,
+  'center': center,
+  'between': space-between,
+  'around': space-around
+);
+
+@each $key, $value in $flex-ac {
+  .ac-#{$key} {
+    align-content: $value;
+  }
+}
+
+$flex-ai: (
+  'start': start,
+  'end': end,
+  'center': center,
+  'stretch': stretch
+);
+
+@each $key, $value in $flex-ai {
+  .ai-#{$key} {
+    align-items: $value;
+  }
+}
+
+//spacing
+//0-5:0
+//.mt-1=>margin top .pb-2
+
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+$spacing-directions: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+$spcing-base-sizes: 1rem;
+$sapcing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3
+);
+@each $typeKey, $type in $spacing-types {
+  // .m-1{margin:0.25rem}
+  @each $sizeKey, $size in $sapcing-sizes {
+    .#{$typeKey}-#{$sizeKey} {
+      #{$type}: $size * $spcing-base-sizes;
+    }
+  }
+  // .mx-1
+  @each $sizeKey, $size in $sapcing-sizes {
+    .#{$typeKey}x-#{$sizeKey} {
+      #{$type}-right: $size * $spcing-base-sizes;
+      #{$type}-left: $size * $spcing-base-sizes;
+    }
+  }
+  //.my-1
+  @each $sizeKey, $size in $sapcing-sizes {
+    .#{$typeKey}y-#{$sizeKey} {
+      #{$type}-top: $size * $spcing-base-sizes;
+      #{$type}-bottom: $size * $spcing-base-sizes;
+    }
+  }
+  // .mt-1{margin:0.25rem}
+  @each $directionKey, $direction in $spacing-directions {
+    @each $sizeKey, $size in $sapcing-sizes {
+      .#{$typeKey}#{$directionKey}-#{$sizeKey} {
+        #{$type}-#{$direction}: $size * $spcing-base-sizes;
+      }
+    }
+  }
+}
+
+//nav
+
+.nav {
+  border-bottom: 1px #5333be solid;
+  .nav-item {
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    &.active {
+      color: map-get($colors, 'red');
+      border-bottom: 1px solid map-get($colors, 'red');
+    }
+  }
+}
+
+//border bottom
+.bt {
+  border-bottom: 1px solid map-get($map: $colors, $key: bottom-color);
+}

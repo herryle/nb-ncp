@@ -1,0 +1,80 @@
+[
+    {
+        "name":"海曙区",
+        "value":"69",
+        "riskLevel": "4",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"江北区",
+        "value":"5",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"镇海区",
+        "value":"3",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"北仑区",
+        "value":"11",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"鄞州区",
+        "value":"13",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"奉化区",
+        "value":"3",
+        "riskLevel": "1",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"宁海县",
+        "value":"11",
+        "riskLevel": "1",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"象山县",
+        "value":"2",
+        "riskLevel": "1",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"余姚市",
+        "value":"11",
+        "riskLevel": "1",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"慈溪市",
+        "value":"25",
+        "riskLevel": "2",
+        "ReturnRate": "3"
+    },
+    {
+        "name":"高新区",
+        "value":"2",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"东钱湖",
+        "value":"1",
+        "riskLevel": "1",
+        "ReturnRate": "2"
+    },
+    {
+        "name":"杭州湾新区",
+        "value":"1",
+        "riskLevel": "2",
+        "ReturnRate": "3"
+    }
+]
