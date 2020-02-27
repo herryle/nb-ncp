@@ -1,24 +1,32 @@
-# nb-ncp
+## 介绍
 
-## Project setup
-```
-npm install
-```
+一款基于 Vue 的宁波疫情动态监控系统，结合电子地图、影像地图和各种常见的图表(柱状图、折线图、饼状图)，实现数据与地图的联动显示，更直观形象的展示除了数据指标变化。
+tips：本站数据都是爬取的真实数据。
+另外还：
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- GIS 地图展示。
+- 移动端页面适配。
+- PC 端适配。
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 安装
 
-### Lints and fixes files
-```
-npm run lint
-```
+使用 `git clone` 本项目
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**npm install** 安装
+
+**npm run server** 启动 web
+
+**npm start ./server/app.js** 启动 server 服务器即可。
+
+> 数据使用 express 调取。
+
+## 预览
+
+示例站点：http://ncp.liheng.me/
+
+![](https://i.loli.net/2020/02/27/l71ePgBmFv5WMdy.jpg)
+![](https://i.loli.net/2020/02/27/aZ7Dd8wTRphBGnJ.jpg)
+![](https://i.loli.net/2020/02/27/BMYrGgsJFjkHyDb.jpg)
+![](https://i.loli.net/2020/02/27/esHzCpab2wyR38D.jpg)
+![](https://i.loli.net/2020/02/27/582LCMWQqFxw41N.jpg)
+![](https://i.loli.net/2020/02/27/CE6PceK87sBbUn2.jpg)
