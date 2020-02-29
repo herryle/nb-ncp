@@ -12,7 +12,7 @@ Vue.use(VueAwesomeSwiper)
 Vue.prototype.$echarts = echarts
 
 const http = axios.create({
-  baseURL: process.env.VUE_APP_API_URL || '/json'
+  baseURL: process.env.VUE_APP_API_URL || '/'
   // baseURL: 'http://192.168.0.112:3005/json/'
 })
 

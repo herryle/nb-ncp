@@ -6,7 +6,7 @@ const app = express()
 app.use(cors())
 
 app.use('/json', express.static(__dirname + '/json'))
-app.use('/', express.static(__dirname + '/web'))
+app.use('/', express.static(__dirname + '/static'))
 
 app.get('/chartMock', async (req, res) => {
   const data = await axios.get('https://wxyq.nbsghy.com/mock/chartMock.json')
