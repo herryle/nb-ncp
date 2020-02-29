@@ -1,26 +1,24 @@
 <template>
-  <div class="migrate p-2 ">
+  <div class="migrate p-2">
     <div class="d-flex ai-center bt pb-1">
       <img src="../assets/images/info-icon.png" alt height="27px" />
       <div class="text-blue flex-1">迁入宁波来源地</div>
       <div class="select-box fs-md mr-3">
         <div class="select-div" @click="boxshow = !boxshow" v-show="boxshow">
           2020-02-18
-          <span class="ml-2"
-            ><img src="../assets/images/select-icon.png" alt=""
-          /></span>
+          <span class="ml-2">
+            <img src="../assets/images/select-icon.png" alt />
+          </span>
         </div>
         <div class="select-list bg-black-blue py-1 px-3 mt-3" v-show="boxshow">
-          <ul class="">
-            <li class="bt p-2 fs-sm text-pink" v-for="n in 10" :key="n">
-              2020-02-20
-            </li>
+          <ul class>
+            <li class="bt p-2 fs-sm text-pink" v-for="n in 10" :key="n">2020-02-20</li>
           </ul>
         </div>
       </div>
     </div>
     <div class="moveMap" id="moveMap"></div>
-    <div class="d-flex ai-center bt ">
+    <div class="d-flex ai-center bt">
       <img src="../assets/images/info-icon.png" alt height="27px" />
       <div class="text-blue flex-1">迁入来源地分析</div>
       <div class="fs-xs text-grey">信息来源：百度慧眼</div>
@@ -38,21 +36,20 @@
               <div class="fs-md">确诊人数</div>
             </div>
             <div
-              class="d-flex text-grey fs-xs  jc-between  py-2 strip"
+              class="d-flex text-grey fs-xs jc-between py-2 strip"
               v-for="(item, index) in province"
               :key="index"
             >
-              <div class="">
-                <span class="index-icon text-white text-center mr-2 ">{{
+              <div class>
+                <span class="index-icon text-white text-center mr-2">
+                  {{
                   index
-                }}</span>
+                  }}
+                </span>
                 <span>{{ item.name }}</span>
               </div>
               <div class="scale d-flex jc-between pr-2">
-                <div
-                  class="bar"
-                  :style="'width:' + item.scale * 2 + '%;'"
-                ></div>
+                <div class="bar" :style="'width:' + item.scale * 2 + '%;'"></div>
                 <span class="num">{{ item.scale }} %</span>
               </div>
               <div class="people mr-2">{{ item.value }}</div>
@@ -68,21 +65,20 @@
               <div class="fs-md">确诊人数</div>
             </div>
             <div
-              class="d-flex text-grey fs-xs  jc-between  py-2 strip"
+              class="d-flex text-grey fs-xs jc-between py-2 strip"
               v-for="(item, index) in city"
               :key="index"
             >
-              <div class="">
-                <span class="index-icon text-white text-center mr-2 ">{{
+              <div class>
+                <span class="index-icon text-white text-center mr-2">
+                  {{
                   index
-                }}</span>
+                  }}
+                </span>
                 <span>{{ item.name }}</span>
               </div>
               <div class="scale d-flex jc-between pr-2">
-                <div
-                  class="bar"
-                  :style="'width:' + item.scale * 5 + '%;'"
-                ></div>
+                <div class="bar" :style="'width:' + item.scale * 5 + '%;'"></div>
                 <span class="num">{{ item.scale }} %</span>
               </div>
               <div class="people mr-2">{{ item.value }}</div>
@@ -95,7 +91,7 @@
       </swiper>
     </div>
     <!-- end -->
-    <div class="d-flex ai-center bt ">
+    <div class="d-flex ai-center bt">
       <img src="../assets/images/info-icon.png" alt height="27px" />
       <div class="text-blue flex-1">迁入宁波趋势</div>
     </div>
@@ -134,7 +130,7 @@ export default {
   },
   methods: {
     async initMoveMap(date) {
-      const cityMockData = await this.$http.get('cityMock.json')
+      const cityMockData = await this.$http.get('cityMock')
       const data = cityMockData.data
       let res = []
       if (data[date] && data[date]['province']) {
@@ -155,7 +151,7 @@ export default {
       this.getMigrationChart()
     },
     async getMigrationChart() {
-      const res = await this.$http.get('chartMock.json')
+      const res = await this.$http.get('chartMock')
       const data = res.data.shift()
       const xData1 = data.line05.xData
       const yData1 = data.line05.yData
@@ -163,7 +159,7 @@ export default {
       getChartsLineMigrate(xData1, yData1, yData2)
     },
     async getCityData(index) {
-      const res = await this.$http.get('cityMock.json')
+      const res = await this.$http.get('cityMock')
       console.log(res.data[index])
       this.city = res.data[index].city
       this.province = res.data[index].province

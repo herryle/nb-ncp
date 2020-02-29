@@ -4,35 +4,27 @@
       <div class="d-flex jc-between fs-lg px-3 pt-3">
         <div class="text-red">{{ name }}病例详情</div>
         <!-- &lt; 小于号得转义 -->
-        <router-link tag="div" to="/" class="text-blue cp"
-          >&lt;&lt;返回</router-link
-        >
+        <router-link tag="div" to="/" class="text-blue cp">&lt;&lt;返回</router-link>
       </div>
       <div class="d-flex jc-between mt-3 px-3" v-if="model.head">
         <div class="item">
-          <div class="text-red text-center fs-xl fs-weight">
-            {{ model.head.qzrs }}
-          </div>
+          <div class="text-red text-center fs-xl fs-weight">{{ model.head.qzrs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">确诊人数</div>
           <div class="text-grey fs-md text-center">
             昨日
-            <span class="text-red fs-md"> {{ model.head.qzrszr }} </span>
+            <span class="text-red fs-md">{{ model.head.qzrszr }}</span>
           </div>
         </div>
         <div class="item">
-          <div class="text-grey text-center fs-xl fs-weight">
-            {{ model.head.swrs }}
-          </div>
+          <div class="text-grey text-center fs-xl fs-weight">{{ model.head.swrs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">死亡人数</div>
           <div class="text-grey fs-md text-center">
             昨日
-            <span> {{ model.head.swrszr }}</span>
+            <span>{{ model.head.swrszr }}</span>
           </div>
         </div>
         <div class="item">
-          <div class="text-green text-center fs-xl fs-weight">
-            {{ model.head.zyrs }}
-          </div>
+          <div class="text-green text-center fs-xl fs-weight">{{ model.head.zyrs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">治愈人数</div>
           <div class="text-grey fs-md text-center">
             昨日
@@ -49,11 +41,7 @@
     </div>
     <!-- end -->
     <div class="info">
-      <div
-        class="text-pink pt-2 px-3 fs-md"
-        v-for="(item, index) in model.info"
-        :key="index"
-      >
+      <div class="text-pink pt-2 px-3 fs-md" v-for="(item, index) in model.info" :key="index">
         <span class="text-blue">{{ index + 1 }} .</span>
         {{ item }}
       </div>
@@ -77,7 +65,7 @@ export default {
   },
   methods: {
     async fetch() {
-      const res = await this.$http.get('detailsData.json')
+      const res = await this.$http.get('detailsData')
       this.model = res.data.shift()[this.name]
       console.log(this.model)
     }

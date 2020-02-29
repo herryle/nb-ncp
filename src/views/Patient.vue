@@ -4,16 +4,9 @@
       <div class="d-flex ai-center pb-1">
         <img src="../assets/images/info-icon.png" alt height="27px" />
         <div class="text-blue flex-1">确诊患者周边人口</div>
-        <div
-          class="fs-xs text-grey bg-blue-2 d-flex p-1 cp"
-          @click="popBox = true"
-        >
+        <div class="fs-xs text-grey bg-blue-2 d-flex p-1 cp" @click="popBox = true">
           <div class="mx-1">
-            <img
-              src="../assets/images/tip-icon.png"
-              alt
-              height="13.98px;width:13.98px"
-            />
+            <img src="../assets/images/tip-icon.png" alt height="13.98px;width:13.98px" />
           </div>
           <span class="mx-1">数据说明</span>
         </div>
@@ -78,13 +71,13 @@
         <div class="pop d-flex flex-column ai-center">
           <div class="content bg-white p-3">
             <div class="text-center text-blue">数据说明</div>
-            <div class="text-black pt-2 fs-md">
-              依据百度慧眼地图于2020年1月整理的宁波市常住人口，按照100米网格分析，本图展示的是宁波确诊病例2公里范围内的常住人口数量及热力分布图，图中蓝点为确诊病例位置。
-            </div>
+            <div
+              class="text-black pt-2 fs-md"
+            >依据百度慧眼地图于2020年1月整理的宁波市常住人口，按照100米网格分析，本图展示的是宁波确诊病例2公里范围内的常住人口数量及热力分布图，图中蓝点为确诊病例位置。</div>
           </div>
           <i></i>
           <div class="close" @click="popBox = false">
-            <img src="../assets/images/close-icon.png" alt="" />
+            <img src="../assets/images/close-icon.png" alt />
           </div>
         </div>
       </div>
@@ -164,7 +157,7 @@ export default {
         .addTo(map)
     },
     async getPatientCharts() {
-      const res = await this.$http.get('chartMock.json')
+      const res = await this.$http.get('chartMock')
       var data = res.data.shift()
       var xData1 = data.pBar01.xData
       var yData1 = data.pBar01.yData

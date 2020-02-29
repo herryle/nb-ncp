@@ -1,32 +1,28 @@
 <template>
   <div class="home">
     <div class="p-2">
-      <div class="text-white fs-md">数据截至2020年2月20日24时</div>
+      <div
+        class="text-white fs-md"
+      >数据截至{{times.split('-')[0]}}年{{times.split('-')[1]}}月{{times.split('-')[2]}}日24时</div>
       <div class="d-flex jc-between py-2" v-if="headMock[0]">
         <div class="item">
-          <div class="text-red text-center fs-xl fs-weight">
-            {{ headMock[0].rs }}
-          </div>
+          <div class="text-red text-center fs-xl fs-weight">{{ headMock[0].rs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">确诊人数</div>
           <div class="text-grey fs-md text-center">
             昨日
-            <span class="text-red fs-md"> {{ headMock[0].zr }} </span>
+            <span class="text-red fs-md">{{ headMock[0].zr }}</span>
           </div>
         </div>
         <div class="item">
-          <div class="text-grey text-center fs-xl fs-weight">
-            {{ headMock[1].rs }}
-          </div>
+          <div class="text-grey text-center fs-xl fs-weight">{{ headMock[1].rs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">死亡人数</div>
           <div class="text-grey fs-md text-center">
             昨日
-            <span> {{ headMock[1].zr }}</span>
+            <span>{{ headMock[1].zr }}</span>
           </div>
         </div>
         <div class="item">
-          <div class="text-green text-center fs-xl fs-weight">
-            {{ headMock[2].rs }}
-          </div>
+          <div class="text-green text-center fs-xl fs-weight">{{ headMock[2].rs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">治愈人数</div>
           <div class="text-grey fs-md text-center">
             昨日
@@ -34,9 +30,7 @@
           </div>
         </div>
         <div class="item">
-          <div class="text-yellow text-center fs-xl fs-weight">
-            {{ headMock[3].rs }}
-          </div>
+          <div class="text-yellow text-center fs-xl fs-weight">{{ headMock[3].rs }}</div>
           <div class="bg-primary fs-md py-1 px-3 my-2">密切接触</div>
           <div class="text-grey fs-md text-center">
             昨日
@@ -56,23 +50,17 @@
           @click="active('quezhenMap')"
           class="tabs bt"
           :class="{ active: actives == 'quezhenMap' }"
-        >
-          确诊发布
-        </div>
+        >确诊发布</div>
         <div
           class="tabs bt"
           :class="{ active: actives == 'fiveMap' }"
           @click="active('fiveMap')"
-        >
-          风险图
-        </div>
+        >风险图</div>
         <div
           class="tabs"
           :class="{ active: actives == 'returnMap' }"
           @click="active('returnMap')"
-        >
-          复工图
-        </div>
+        >复工图</div>
       </div>
       <!-- end -->
       <div class="tool-map mx-2">
@@ -125,7 +113,9 @@
             <i></i>
             <span>低风险</span>
           </div>
-          <div class="fs-xxs text-grey mt-2">数据截止时间2020年2月19日24时</div>
+          <div
+            class="fs-xxs text-grey mt-2"
+          >数据截至{{times.split('-')[0]}}年{{times.split('-')[1]}}月{{times.split('-')[2]}}日24时</div>
         </div>
         <div class="returnMap" v-show="actives == 'returnMap'">
           <div class="fs-xxs text-grey">复工率(%)</div>
@@ -149,7 +139,9 @@
             <i></i>
             <span>0-20</span>
           </div>
-          <div class="fs-xxs text-grey mt-2">数据截止时间2020年2月19日24时</div>
+          <div
+            class="fs-xxs text-grey mt-2"
+          >数据截至{{times.split('-')[0]}}年{{times.split('-')[1]}}月{{times.split('-')[2]}}日24时</div>
         </div>
       </div>
       <!-- end -->
@@ -202,6 +194,7 @@ export default {
   name: 'Home',
   data() {
     return {
+      times: '',
       actives: 'quezhenMap',
       QZData: [],
       FiveData: [],
@@ -225,8 +218,8 @@ export default {
   },
   methods: {
     async initMap() {
-      const res = await this.$http.get('NBRegion.json')
-      const res1 = await this.$http.get('mockData.json')
+      const res = await this.$http.get('NBRegion')
+      const res1 = await this.$http.get('mockData')
       drawMap(res.data, res1.data)
       this.FiveData = []
       this.ReturnData = []
@@ -245,11 +238,12 @@ export default {
       }
     },
     async fetch() {
-      const res = await this.$http.get('chartMock.json')
+      const time = await this.$http.get('timePick')
+      this.times = time.data.timeArr.shift()
+      const res = await this.$http.get('chartMock')
       this.chartMock = res.data
-      const headres = await this.$http.get('headMock.json')
+      const headres = await this.$http.get('headMock')
       this.headMock = headres.data
-
       this.getChartsInfo()
     },
     active(index) {
@@ -261,6 +255,7 @@ export default {
       } else {
         this.initMap()
       }
+      console.log(1)
     },
     getChartsInfo() {
       const data = this.chartMock.shift()
