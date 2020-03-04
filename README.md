@@ -24,9 +24,6 @@ tips：本站数据都是爬取的真实数据。
 
 示例站点：http://ncp.liheng.me/ （手机端效果更好）
 
-![](https://i.loli.net/2020/02/27/l71ePgBmFv5WMdy.jpg)
-![](https://i.loli.net/2020/02/27/aZ7Dd8wTRphBGnJ.jpg)
-![](https://i.loli.net/2020/02/27/BMYrGgsJFjkHyDb.jpg)
-![](https://i.loli.net/2020/02/27/esHzCpab2wyR38D.jpg)
-![](https://i.loli.net/2020/02/27/582LCMWQqFxw41N.jpg)
-![](https://i.loli.net/2020/02/27/CE6PceK87sBbUn2.jpg)
+<img src="https://i.loli.net/2020/02/27/l71ePgBmFv5WMdy.jpg" style="zoom:25%;" /><img src="https://i.loli.net/2020/02/27/aZ7Dd8wTRphBGnJ.jpg" style="zoom:25%;" />
+<img src="https://i.loli.net/2020/02/27/CE6PceK87sBbUn2.jpg" style="zoom:25%;" /><img src="https://i.loli.net/2020/02/27/BMYrGgsJFjkHyDb.jpg" style="zoom:25%;" />
+
