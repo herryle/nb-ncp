@@ -218,9 +218,8 @@ export default {
   },
   methods: {
     async initMap() {
-      const res = await this.$http.get('NBRegion')
       const res1 = await this.$http.get('mockData')
-      drawMap(res.data, res1.data)
+      drawMap(res1.data)
       this.FiveData = []
       this.ReturnData = []
       for (let i = 0; i < res1.data.length; i++) {
@@ -238,12 +237,12 @@ export default {
       }
     },
     async fetch() {
+      const headres = await this.$http.get('headMock')
+      this.headMock = headres.data
       const time = await this.$http.get('timePick')
       this.times = time.data.timeArr.shift()
       const res = await this.$http.get('chartMock')
       this.chartMock = res.data
-      const headres = await this.$http.get('headMock')
-      this.headMock = headres.data
       this.getChartsInfo()
     },
     active(index) {

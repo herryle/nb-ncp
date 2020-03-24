@@ -3,11 +3,7 @@
     <div class="header">
       <div class="topbar"></div>
       <div class="nav d-flex bg-blue-1 jc-around fs-lg pt-2 pb-0">
-        <div
-          class="nav-item pb-2"
-          :class="{ active: actives == 'home' }"
-          @click="active('home')"
-        >
+        <div class="nav-item pb-2" :class="{ active: actives == 'home' }" @click="active('home')">
           <router-link tag="div" to="/home">疫情动态</router-link>
         </div>
         <div
@@ -27,10 +23,9 @@
       </div>
     </div>
     <div>
-      <!-- <keep-alive>
-      
-      </keep-alive> -->
-      <router-view :key="$route.path"></router-view>
+      <keep-alive>
+        <router-view :key="$route.path"></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>

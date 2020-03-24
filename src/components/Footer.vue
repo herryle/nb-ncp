@@ -2,7 +2,7 @@
   <div class="footer">
     <div class="text-center fs-xs bg-black-blue py-2 text-grey footer-title">
       <span class="mr-2"><img src="../assets/images/logo.png" alt=""/></span>
-      <span><a href="https://liheng.me">Herry</a></span>
+      <span>宁波市规划设计研究院</span>
     </div>
   </div>
 </template>

@@ -1,8 +1,8 @@
 import echarts from 'echarts'
-
 import '../data/china'
+import NBRegion from '../data/NBRegion'
 
-export function drawMap(NBRegion, mockData) {
+export function drawMap(mockData) {
   echarts.registerMap('ningbo', NBRegion)
   //绘制地图
   const chart = echarts.init(document.getElementById('riskMap'))
